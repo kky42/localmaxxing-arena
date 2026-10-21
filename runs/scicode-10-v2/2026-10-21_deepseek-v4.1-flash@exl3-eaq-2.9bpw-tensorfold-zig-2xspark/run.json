@@ -1,0 +1,62 @@
+{
+  "bench": "scicode-10-v2",
+  "recipe_file": "recipes/deepseek-v4.1-flash@exl3-eaq-2.9bpw-tensorfold-zig-2xspark.toml",
+  "recipe": {
+    "id": "deepseek-v4.1-flash@exl3-eaq-2.9bpw-tensorfold-zig-2xspark",
+    "role": "local",
+    "model_family": "DeepSeek-V4.1-Flash-1017",
+    "display_name": "DeepSeek-V4.1-Flash \u00b7 Mia EAQ \u00b7 TensorFold Zig TP2",
+    "weights": "EXL3 EAQ 2.9bpw",
+    "hardware": "2\u00d7 DGX Spark",
+    "weights_detail": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw @ 6d54be4f + official Engram shards @ 1bae0e10",
+    "serving": "bertholomus/TensorFold deepseek-v41-zig @ 3ff3b2a (TP2, kit abe07c7); recipe MiaAI-Lab/DeepSeek-v4.1-Flash-1017-2x-DGX-Sparks @ 1afc891; CONTEXT=1048576 PARALLEL=4 DRAFTS=1",
+    "hardware_detail": "2\u00d7 NVIDIA DGX Spark (GB10, 128 GB), CX7 RoCE, GPU clocks locked 0-2200 MHz",
+    "model": "openai/DeepSeek-V4.1-Flash-1017",
+    "api_base": "http://192.168.0.112:8888/v1",
+    "n_concurrent": 4
+  },
+  "attempts": 1,
+  "finished": true,
+  "runner": "harbor",
+  "harness": "0.24.0",
+  "host": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "node": "macmini.local",
+    "docker": {
+      "ServerVersion": "29.5.2",
+      "NCPU": 9,
+      "MemTotal": 12512935936,
+      "Architecture": "aarch64"
+    }
+  },
+  "started_at": "2026-10-21T04:46:22+00:00",
+  "parts": [
+    {
+      "job_name": "2026-10-21_deepseek-v4.1-flash@exl3-eaq-2.9bpw-tensorfold-zig-2xspark",
+      "attempts": 1,
+      "n_concurrent": 2,
+      "config": "harbor-config-p1.json",
+      "started_at": "2026-10-21T04:46:22+00:00",
+      "host": {
+        "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "node": "macmini.local",
+        "docker": {
+          "ServerVersion": "29.5.2",
+          "NCPU": 9,
+          "MemTotal": 12512935936,
+          "Architecture": "aarch64"
+        }
+      },
+      "finished": true,
+      "evidence": {
+        "archive": "2026-10-21_deepseek-v4.1-flash@exl3-eaq-2.9bpw-tensorfold-zig-2xspark.tar.gz",
+        "bytes": 20811891,
+        "sha256": "ca20be0268b9b09f276092f0dc9767909ec7881242947cd29db74ca830a87aab",
+        "pieces": [],
+        "url": null
+      }
+    }
+  ]
+}

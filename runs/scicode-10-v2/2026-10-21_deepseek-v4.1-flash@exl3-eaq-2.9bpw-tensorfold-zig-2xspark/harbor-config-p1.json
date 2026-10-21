@@ -1,0 +1,31 @@
+{
+  "job_name": "2026-10-21_deepseek-v4.1-flash@exl3-eaq-2.9bpw-tensorfold-zig-2xspark",
+  "jobs_dir": "/Users/kky/dev/localmaxxing-arena/evidence/scicode-10-v2/2026-10-21_deepseek-v4.1-flash@exl3-eaq-2.9bpw-tensorfold-zig-2xspark/jobs",
+  "n_attempts": 1,
+  "n_concurrent_trials": 2,
+  "timeout_multiplier": 1.0,
+  "agent_timeout_multiplier": 6.0,
+  "verifier_timeout_multiplier": 2.0,
+  "retry": {
+    "max_retries": 2
+  },
+  "environment": {
+    "type": "docker"
+  },
+  "datasets": [
+    {
+      "path": "benches/scicode-10-v2/dataset"
+    }
+  ],
+  "agents": [
+    {
+      "name": "pi",
+      "model_name": "openai/DeepSeek-V4.1-Flash-1017",
+      "kwargs": {
+        "version": "1.3.0",
+        "model_api": "openai-completions",
+        "thinking": "low"
+      }
+    }
+  ]
+}

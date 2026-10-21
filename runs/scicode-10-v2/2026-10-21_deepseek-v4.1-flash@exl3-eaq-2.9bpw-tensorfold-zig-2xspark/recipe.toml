@@ -1,0 +1,14 @@
+id = "deepseek-v4.1-flash@exl3-eaq-2.9bpw-tensorfold-zig-2xspark"
+role = "local"                     # a recipe you can run at home
+model_family = "DeepSeek-V4.1-Flash-1017"
+display_name = "DeepSeek-V4.1-Flash · Mia EAQ · TensorFold Zig TP2"
+weights = "EXL3 EAQ 2.9bpw"         # short, for the leaderboard
+hardware = "2× DGX Spark"
+weights_detail = "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw @ 6d54be4f + official Engram shards @ 1bae0e10"
+serving = "bertholomus/TensorFold deepseek-v41-zig @ 3ff3b2a (TP2, kit abe07c7); recipe MiaAI-Lab/DeepSeek-v4.1-Flash-1017-2x-DGX-Sparks @ 1afc891; CONTEXT=1048576 PARALLEL=4 DRAFTS=1"
+hardware_detail = "2× NVIDIA DGX Spark (GB10, 128 GB), CX7 RoCE, GPU clocks locked 0-2200 MHz"
+
+model = "openai/DeepSeek-V4.1-Flash-1017"
+api_base = "http://192.168.0.112:8888/v1"
+api_key_env = ""                   # server takes no key
+n_concurrent = 4                   # = server PARALLEL
