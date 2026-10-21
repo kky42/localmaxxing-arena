@@ -1,0 +1,17 @@
+id = "gpt-6-luna@codex-subscription"
+role = "proxy"                      # not the official API: a Codex subscription login
+model_family = "gpt-6-luna"
+anchor = false
+display_name = "GPT-6-Luna · Codex subscription"
+weights = "cloud (Codex)"
+hardware = "Codex OAuth"
+
+weights_detail = "OpenAI GPT-6-Luna through the Codex CLI on a ChatGPT subscription; not the official API, results may depend on the account and plan"
+serving = "Harbor codex agent 0.163.0, CODEX_FORCE_AUTH_JSON=1 (~/.codex/auth.json), reasoning effort low (bench.toml)"
+hardware_detail = "Cloud model; runner: macmini (M4, 10 cores, 16 GB), Colima"
+
+model = "openai/gpt-6-luna"
+api_base = "https://api.openai.com/v1"   # unused with subscription auth: Codex keeps its own backend
+api_key_env = ""                         # auth comes from ~/.codex/auth.json
+provider = "openai"
+n_concurrent = 2

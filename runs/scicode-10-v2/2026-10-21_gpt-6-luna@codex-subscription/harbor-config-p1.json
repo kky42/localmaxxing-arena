@@ -1,0 +1,30 @@
+{
+  "job_name": "2026-10-21_gpt-6-luna@codex-subscription",
+  "jobs_dir": "/Users/kky/dev/localmaxxing-arena/evidence/scicode-10-v2/2026-10-21_gpt-6-luna@codex-subscription/jobs",
+  "n_attempts": 1,
+  "n_concurrent_trials": 2,
+  "timeout_multiplier": 1.0,
+  "agent_timeout_multiplier": 6.0,
+  "verifier_timeout_multiplier": 2.0,
+  "retry": {
+    "max_retries": 2
+  },
+  "environment": {
+    "type": "docker"
+  },
+  "datasets": [
+    {
+      "path": "benches/scicode-10-v2/dataset"
+    }
+  ],
+  "agents": [
+    {
+      "name": "codex",
+      "model_name": "openai/gpt-6-luna",
+      "kwargs": {
+        "version": "0.163.0",
+        "reasoning_effort": "low"
+      }
+    }
+  ]
+}
