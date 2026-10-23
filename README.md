@@ -23,12 +23,13 @@ benchmark to keep ratings comparable across them. The table is rebuilt automatic
 <!-- leaderboard:start -->
 | Recipe | Weights | Reasoning | Hardware | PP 32K (tok/s) | TG 32K (tok/s) | [BFCL-100](benches/bfcl-100/RESULTS.md) | Rating (95% CI) | Coverage |
 |---|---|---|---|---|---|---|---|---|
-| [DeepSeek-V4.1-Flash · vLLM TP8](recipes/deepseek-v4.1-flash@official-fp8-fp4-vllm-tp8-8xgb10.toml) | official FP8/FP4 | low | 8× GB10 | 9,386 | 96.5 | [69.0%](benches/bfcl-100/recipes/deepseek-v4.1-flash@official-fp8-fp4-vllm-tp8-8xgb10.md) | **1192** (1083–1302) | 100/100 |
-| [DeepSeek-V4.1-Flash · Mia EAQ · TensorFold Zig TP2](recipes/deepseek-v4.1-flash@exl3-eaq-2.9bpw-tensorfold-zig-2xspark.toml) | EXL3 EAQ 2.9bpw | low | 2× DGX Spark | 1,759 | 58.5 | [67.0%](benches/bfcl-100/recipes/deepseek-v4.1-flash@exl3-eaq-2.9bpw-tensorfold-zig-2xspark.md) | **1182** (1078–1287) | 100/100 (+10 not shown) |
-| [DeepSeek-V4.1-Flash · TensorFold TP2](recipes/deepseek-v4.1-flash@exl3-2.9bpw-tensorfold-2xspark.toml) *(anchor)* | EXL3 2.9bpw | low | 2× DGX Spark | 1,056 | 58.4 | [68.0%](benches/bfcl-100/recipes/deepseek-v4.1-flash@exl3-2.9bpw-tensorfold-2xspark.md) | **1181** (1072–1290) | 100/100 |
-| [GLM-5.3-Flash · Mia EXL3 · TensorFold TP2](recipes/glm-5.3-flash@exl3-4bpw-tensorfold-2xspark.toml) | EXL3 4bpw | low | 2× DGX Spark | 1,655 | 49.2 | [55.0%](benches/bfcl-100/recipes/glm-5.3-flash@exl3-4bpw-tensorfold-2xspark.md) | **1039** (934–1144) | 100/100 |
-| [GPT-6-Astra · Codex subscription proxy](recipes/gpt-6-astra@codex-proxy.toml) *(subscription proxy)* | cloud (Codex) | low | Codex OAuth proxy | - | - | [52.0%](benches/bfcl-100/recipes/gpt-6-astra@codex-proxy.md) | **1008** (903–1112) | 100/100 |
-| [GPT-6-Luna · Codex subscription](recipes/gpt-6-luna@codex-subscription.toml) *(subscription proxy)* | cloud (Codex) | low | Codex OAuth | - | - | - | **845** (595–1095) | hidden benches only |
+| [DeepSeek-V4.1-Flash · vLLM TP8](recipes/deepseek-v4.1-flash@official-fp8-fp4-vllm-tp8-8xgb10.toml) | official FP8/FP4 | low | 8× GB10 | 9,386 | 96.5 | [69.0%](benches/bfcl-100/recipes/deepseek-v4.1-flash@official-fp8-fp4-vllm-tp8-8xgb10.md) | **1196** (1086–1306) | 100/100 |
+| [DeepSeek-V4.1-Flash · Mia EAQ · TensorFold Zig TP2](recipes/deepseek-v4.1-flash@exl3-eaq-2.9bpw-tensorfold-zig-2xspark.toml) | EXL3 EAQ 2.9bpw | low | 2× DGX Spark | 1,759 | 58.5 | [67.0%](benches/bfcl-100/recipes/deepseek-v4.1-flash@exl3-eaq-2.9bpw-tensorfold-zig-2xspark.md) | **1186** (1081–1290) | 100/100 (+10 not shown) |
+| [DeepSeek-V4.1-Flash · TensorFold TP2](recipes/deepseek-v4.1-flash@exl3-2.9bpw-tensorfold-2xspark.toml) *(anchor)* | EXL3 2.9bpw | low | 2× DGX Spark | 1,056 | 58.4 | [68.0%](benches/bfcl-100/recipes/deepseek-v4.1-flash@exl3-2.9bpw-tensorfold-2xspark.md) | **1184** (1075–1293) | 100/100 |
+| [GLM-5.3 · vLLM TP8](recipes/glm-5.3@int4-int8mix-vllm-tp8-8xgb10.toml) | Int4/Int8 mix | low | 8× GB10 | 2,800 | 62.9 | [56.0%](benches/bfcl-100/recipes/glm-5.3@int4-int8mix-vllm-tp8-8xgb10.md) | **1051** (945–1156) | 100/100 |
+| [GLM-5.3-Flash · Mia EXL3 · TensorFold TP2](recipes/glm-5.3-flash@exl3-4bpw-tensorfold-2xspark.toml) | EXL3 4bpw | low | 2× DGX Spark | 1,655 | 49.2 | [55.0%](benches/bfcl-100/recipes/glm-5.3-flash@exl3-4bpw-tensorfold-2xspark.md) | **1040** (935–1145) | 100/100 |
+| [GPT-6-Astra · Codex subscription proxy](recipes/gpt-6-astra@codex-proxy.toml) *(subscription proxy)* | cloud (Codex) | low | Codex OAuth proxy | - | - | [52.0%](benches/bfcl-100/recipes/gpt-6-astra@codex-proxy.md) | **1008** (903–1113) | 100/100 |
+| [GPT-6-Luna · Codex subscription](recipes/gpt-6-luna@codex-subscription.toml) *(subscription proxy)* | cloud (Codex) | low | Codex OAuth | - | - | - | **846** (596–1096) | hidden benches only |
 
 Not shown as a column: [SciCode-10](benches/scicode-10/RESULTS.md) (not rated), [SciCode-10-v2](benches/scicode-10-v2/RESULTS.md) (rating)
 <!-- leaderboard:end -->
