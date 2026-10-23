@@ -1,0 +1,14 @@
+id = "glm-5.3@int4-int8mix-vllm-tp8-8xgb10"
+role = "local"
+model_family = "GLM-5.3"
+display_name = "GLM-5.3 · vLLM TP8"
+weights = "Int4/Int8 mix"
+hardware = "8× GB10"
+weights_detail = "vikasclawd/GLM-5.3-Int4-Int8Mix (compressed-tensors: routed experts int4 group-128, other linears int8; local copy, 282 shards, upstream revision not recorded); at load the dense layers also get NVFP4 copies, used for decode batches of <= 32 tokens; KV cache stored as FP4"
+serving = "vLLM ddd6fbca (image glm53-mmastrac:ea204b6-w4a16) TP8 + glm53 plugin pack (arx RDMA all-reduce, int4moe decode MoE, NVFP4 dense, FP4 KV with direct-read decode attention, row-owner sequence-parallel prefill, grouped sparse MLA, fc2x, moe_head, mtp_pf); MTP 3 drafts with cost-based adaptive draft count; --tool-call-parser glm47 --reasoning-parser glm45; max-num-seqs 8, max-num-batched-tokens 8192, max-model-len 262144"
+hardware_detail = "8× GB10 (DGX Spark class, 128 GB), one 200G RoCE link each, GPU clocks locked 0-2200 MHz"
+
+model = "openai/GLM-5.3-Int4-Int8Mix"
+api_base = "http://192.168.88.1:8002/v1"
+api_key_env = ""
+n_concurrent = 8                   # = server --max-num-seqs

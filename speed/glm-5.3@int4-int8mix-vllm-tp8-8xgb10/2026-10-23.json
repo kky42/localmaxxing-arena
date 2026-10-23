@@ -1,0 +1,44 @@
+{
+  "recipe_file": "recipes/glm-5.3@int4-int8mix-vllm-tp8-8xgb10.toml",
+  "recipe": {
+    "id": "glm-5.3@int4-int8mix-vllm-tp8-8xgb10",
+    "model": "openai/GLM-5.3-Int4-Int8Mix",
+    "api_base": "http://192.168.88.1:8002/v1"
+  },
+  "date": "2026-10-23T09:30:01+00:00",
+  "context_tokens": 32768,
+  "generate_tokens": 512,
+  "concurrency": 1,
+  "host": {
+    "os": "Linux-6.17.0-1029-nvidia-aarch64-with-glibc2.39",
+    "machine": "aarch64"
+  },
+  "samples": [
+    {
+      "prompt_tokens": 32230,
+      "ttft_s": 11.49,
+      "pp_tok_s": 2805.1,
+      "completion_tokens": 512,
+      "decode_s": 9.07,
+      "tg_tok_s": 56.3
+    },
+    {
+      "prompt_tokens": 32229,
+      "ttft_s": 11.512,
+      "pp_tok_s": 2799.6,
+      "completion_tokens": 512,
+      "decode_s": 7.269,
+      "tg_tok_s": 70.3
+    },
+    {
+      "prompt_tokens": 32209,
+      "ttft_s": 11.52,
+      "pp_tok_s": 2795.9,
+      "completion_tokens": 512,
+      "decode_s": 8.12,
+      "tg_tok_s": 62.9
+    }
+  ],
+  "pp_tok_s": 2799.6,
+  "tg_tok_s": 62.9
+}

@@ -1,0 +1,234 @@
+# BFCL-100: frozen. Any change (version pins, tasks, agent settings) makes a new bench id, e.g. bfcl-100-r2.
+id = "bfcl-100"
+display_name = "BFCL-100"
+runner = "inspect"
+description = "Multi-turn tool use: 100 BFCL v3 multi-turn tasks (25 each: base, missing function, missing parameter, long context), low reasoning"
+
+[harness]
+# Run through uvx in a throwaway environment; scripts/run.py builds the exact command from this.
+python = "3.12"
+requirements = [
+  "inspect-ai==0.3.281",
+  "inspect_evals[bfcl] @ git+https://github.com/UKGovernmentBEIS/inspect_evals@8ef810f09930362302fc59b10a382d96dd767171",
+  "openai==3.35.1",
+]
+task = "inspect_evals/bfcl"
+# inspect_evals pins the upstream data: ShishirPatil/gorilla @ dac44e7ac9db5ff26a01ab0c1ec5de5a1e703b7a
+
+[harness.task_args]
+categories = ["multi_turn_base", "multi_turn_miss_func", "multi_turn_miss_param", "multi_turn_long_context"]
+
+[agent]
+reasoning_effort = "low"
+temperature = 1.0
+max_output_tokens = 16384        # per model call
+request_timeout_sec = 1800       # per model call
+
+[suite]
+dataset = "BFCL v3 multi-turn (inspect_evals bfcl, gorilla @ dac44e7)"
+selection = "select.py: per category, ids sorted, 25 drawn with random.Random('100:<category>')"
+n_attempts = 1
+tasks = [
+  "multi_turn_base_0",
+  "multi_turn_base_1",
+  "multi_turn_base_3",
+  "multi_turn_base_6",
+  "multi_turn_base_11",
+  "multi_turn_base_17",
+  "multi_turn_base_21",
+  "multi_turn_base_36",
+  "multi_turn_base_37",
+  "multi_turn_base_39",
+  "multi_turn_base_41",
+  "multi_turn_base_72",
+  "multi_turn_base_74",
+  "multi_turn_base_77",
+  "multi_turn_base_97",
+  "multi_turn_base_113",
+  "multi_turn_base_117",
+  "multi_turn_base_123",
+  "multi_turn_base_133",
+  "multi_turn_base_134",
+  "multi_turn_base_147",
+  "multi_turn_base_157",
+  "multi_turn_base_168",
+  "multi_turn_base_176",
+  "multi_turn_base_194",
+  "multi_turn_miss_func_9",
+  "multi_turn_miss_func_21",
+  "multi_turn_miss_func_22",
+  "multi_turn_miss_func_27",
+  "multi_turn_miss_func_50",
+  "multi_turn_miss_func_53",
+  "multi_turn_miss_func_55",
+  "multi_turn_miss_func_62",
+  "multi_turn_miss_func_70",
+  "multi_turn_miss_func_75",
+  "multi_turn_miss_func_98",
+  "multi_turn_miss_func_103",
+  "multi_turn_miss_func_104",
+  "multi_turn_miss_func_112",
+  "multi_turn_miss_func_113",
+  "multi_turn_miss_func_117",
+  "multi_turn_miss_func_120",
+  "multi_turn_miss_func_133",
+  "multi_turn_miss_func_150",
+  "multi_turn_miss_func_154",
+  "multi_turn_miss_func_157",
+  "multi_turn_miss_func_161",
+  "multi_turn_miss_func_164",
+  "multi_turn_miss_func_180",
+  "multi_turn_miss_func_186",
+  "multi_turn_miss_param_9",
+  "multi_turn_miss_param_17",
+  "multi_turn_miss_param_43",
+  "multi_turn_miss_param_48",
+  "multi_turn_miss_param_66",
+  "multi_turn_miss_param_83",
+  "multi_turn_miss_param_86",
+  "multi_turn_miss_param_89",
+  "multi_turn_miss_param_96",
+  "multi_turn_miss_param_99",
+  "multi_turn_miss_param_106",
+  "multi_turn_miss_param_107",
+  "multi_turn_miss_param_113",
+  "multi_turn_miss_param_115",
+  "multi_turn_miss_param_117",
+  "multi_turn_miss_param_126",
+  "multi_turn_miss_param_132",
+  "multi_turn_miss_param_142",
+  "multi_turn_miss_param_153",
+  "multi_turn_miss_param_161",
+  "multi_turn_miss_param_182",
+  "multi_turn_miss_param_187",
+  "multi_turn_miss_param_195",
+  "multi_turn_miss_param_198",
+  "multi_turn_miss_param_199",
+  "multi_turn_long_context_9",
+  "multi_turn_long_context_16",
+  "multi_turn_long_context_20",
+  "multi_turn_long_context_24",
+  "multi_turn_long_context_29",
+  "multi_turn_long_context_32",
+  "multi_turn_long_context_36",
+  "multi_turn_long_context_42",
+  "multi_turn_long_context_47",
+  "multi_turn_long_context_48",
+  "multi_turn_long_context_61",
+  "multi_turn_long_context_69",
+  "multi_turn_long_context_74",
+  "multi_turn_long_context_86",
+  "multi_turn_long_context_91",
+  "multi_turn_long_context_100",
+  "multi_turn_long_context_110",
+  "multi_turn_long_context_119",
+  "multi_turn_long_context_148",
+  "multi_turn_long_context_151",
+  "multi_turn_long_context_165",
+  "multi_turn_long_context_189",
+  "multi_turn_long_context_194",
+  "multi_turn_long_context_196",
+  "multi_turn_long_context_198",
+]
+
+[suite.task_refs]
+multi_turn_base_0 = "3594297239510f614b7c387b644d0df55e80c91c107fbc1ac91abf65360fafbe"
+multi_turn_base_1 = "194920589ef112271071a0b93d7fdcfbbb81953032d0e0a3f5bebad97034f45e"
+multi_turn_base_3 = "3542af0908a42fdc5f8431463daf3e56fd1fdbb3d987f6ce393cfe44ea8ac558"
+multi_turn_base_6 = "1bb936704ddda9da595cdca0c66ddfcf989937ef6c994b94ada087e7b489b2cf"
+multi_turn_base_11 = "bc529e9bc40b146a91ee6a8fa6c43e7116052b2b3867616791b17ee4d159d88c"
+multi_turn_base_17 = "a5145a8ba1226887fdbfd15b4be934ebfca1186a1a440191b6dc12c1920e2e1d"
+multi_turn_base_21 = "4c80017951a36d7f1ef373e5957f6610502fe9419ff8778acbb2e650c5f5ad09"
+multi_turn_base_36 = "4aabd857f84543200fcce3d54d9b46832142dd68b1d01501e12767626e8d2c72"
+multi_turn_base_37 = "d8a7995edd6ac845851258a9470e11ae1c59999e3019e3976f174750e3c0cdf6"
+multi_turn_base_39 = "1374fffc1eac1ae1630213eb0886236f4a6a00542555d3e4c831746c2c75f1d3"
+multi_turn_base_41 = "06d96d65075fc426f322a48fe2c559158a3951456082935c7925d079f37693f6"
+multi_turn_base_72 = "8b34169a2f18ea4856d0daaee27a4e1603752987db6427c1d403c2af352e9f9b"
+multi_turn_base_74 = "c41d33fda886041139d6708d27ab4e5cb3dc51eba8899cebe47a8fa8e31f2f17"
+multi_turn_base_77 = "26d1262c70817a7d60ff198eac13997cab0448874aa98bdf8d9c28b6570d6ba6"
+multi_turn_base_97 = "54fcab1651241aafb64924a517dbbe9cafebdf7fdb511e32dcef62417ea53aed"
+multi_turn_base_113 = "82077bf09cf0259f57eb96f59aa02f2894d5a1d32c19ae1d653cf79fb8079c36"
+multi_turn_base_117 = "7f4437c09caa006a7388a62562a44200057c95d20b764e25dd374dd0aba03531"
+multi_turn_base_123 = "072bc8f90ccc1811b4c14f89c4b7d353e3d18f86e673792a25a06d8e667abe69"
+multi_turn_base_133 = "fce623cd18a3cf81d2501fd8e10edd142c399e43744c12c2da79075e2f0852c2"
+multi_turn_base_134 = "254325b4db83566b43a1164ae24695eb5cf0bf835c6d1fe229dac8a1886027e7"
+multi_turn_base_147 = "fcbd8f700fe07a44c9ff3a924949c370a84fe54dd523d4f5d211b1df613df88f"
+multi_turn_base_157 = "4a6a21ead6a322d74bdc2af98e3ae8746916686fc3de800f11030969814d466f"
+multi_turn_base_168 = "b5d0acc8b892f47b46d5cd36f3be6b738c6be332a12cf279e8303c9562f43927"
+multi_turn_base_176 = "f7690899855c94b6fdbed0e240e43597dcca82cb768d3c2a763f8e99f273479c"
+multi_turn_base_194 = "0668e649d0f38e8815437e26774ce075c3bbcb69d4c60033eaf176a1ea7438dc"
+multi_turn_miss_func_9 = "b6dc02d09ad3d609cc156d82a3722960dfa02b19ad9fb92b041b6b65e6f32922"
+multi_turn_miss_func_21 = "6cd077fee9004906f7d63dddcbb464060ad04c3f57791af3a4c0d2f594629778"
+multi_turn_miss_func_22 = "d09cb0f488493f67f3ce44c6f5c4b3b8e6d8de26bdf3af5b8ef2604f7b995187"
+multi_turn_miss_func_27 = "b3b287860d88d2c8369b174739917f28d0a553eca0736f7db42795c3652f5fd3"
+multi_turn_miss_func_50 = "c45272daa51e9ad6c9ca90506718f12c112b025371fde4a7ef864919e16f2022"
+multi_turn_miss_func_53 = "829c26a59f61b8e716c4bdb1eca002d3ffdbcc7c32c8de30597f0ba93a892c81"
+multi_turn_miss_func_55 = "0991a7645d5bc70e77179cdd9e5874c0d609d9a8121385e9c3301509588de0a9"
+multi_turn_miss_func_62 = "33458344d8dc30290b5631a4323dc3333b399f41de2f69b919c33dc4fea3fa83"
+multi_turn_miss_func_70 = "59fa7f91ec209a3d591bc13da114ca7eb01c998011f70dda73754b0337588244"
+multi_turn_miss_func_75 = "5e129a90316062307a47f7915f0d4bfa31620c1746ec6a8cc16612bdc7a948fa"
+multi_turn_miss_func_98 = "0099eaf9df93dac3af816e653dfa1fa64ae30a982ec4d71f719db2d24d629263"
+multi_turn_miss_func_103 = "1e802ef4f37d2c1109a05194c6c66455b47c6a9d7121b35696bffd8ac81a8074"
+multi_turn_miss_func_104 = "448d16a3d9f6dd25040eeea1ba082e3ddaa7142912d80cc9714db7b753aec742"
+multi_turn_miss_func_112 = "309c9e67c4047d9b9315b3b3e8d82298740764cd49db86e7a10e019ab634831e"
+multi_turn_miss_func_113 = "bd54345f25808cee78e11b6360f549829663fd86293e6ee254f6a155366ff249"
+multi_turn_miss_func_117 = "9161ab39aad1ed6697fc669612b135c728d435ccf4a20869647e0911accf61e7"
+multi_turn_miss_func_120 = "46fc56b1576f3ed177ce750b3d700b536fa4bab1fcca642ea79bf4c69012a544"
+multi_turn_miss_func_133 = "ba8a939bf61f3f7b17a366898fb8efbc8397cb96a096c5e4a5eea6fb93378ba2"
+multi_turn_miss_func_150 = "1b495b3a840a97b30907f0e677f841e960549fd72e96b450e9a3454a7aa3b3a5"
+multi_turn_miss_func_154 = "f113182e79372d4ca268b1ba2483e7a8a599f2371c304ddc2dc6822a0e0a6b24"
+multi_turn_miss_func_157 = "b7a3b4d5f72b8039e629956456bffaa6b839ef6b26b926200eb8b4dca14eb855"
+multi_turn_miss_func_161 = "a2904ee47aef7b62255ec76d15e7af5bb3caf30386fa778000f21b914c7b152a"
+multi_turn_miss_func_164 = "bfdccea4cc6f1e14d2b7a2c5de8a85131d5c23a495d90e0f54c09a917b8080d1"
+multi_turn_miss_func_180 = "8200ad764e9638815d7647ecc3097bac892f1e19ded2ec37d1c1d3861f5ddb75"
+multi_turn_miss_func_186 = "652234f62ffe6cd92b722a192568cf61ca27af99e181d4471adce0c04542b8cf"
+multi_turn_miss_param_9 = "d5954abf52327a5e93660df5fb5a2c08e90729c4eab70d490f2939b5231c2782"
+multi_turn_miss_param_17 = "9be2d6c17f9282513e270a8a0348ce39d71ee7af367f98cc0ae70b3484ee83cb"
+multi_turn_miss_param_43 = "487446c3d5d187cbf68d1a798b75c10434e7798f50f6e14c39f4b7307c4fe64f"
+multi_turn_miss_param_48 = "a67abd076b3a82b8dcc73dcee82dc512b0b1df55c9837db0b6e59ec42b7e9289"
+multi_turn_miss_param_66 = "1d310552a03a21f9d4ffe8ee38c0de5e1e2614bfdd1657b1e195514ec2be59e7"
+multi_turn_miss_param_83 = "234980aaaebdfd608e5f443ac6197a563b4dab0004f0271fae5bec40d0d5163d"
+multi_turn_miss_param_86 = "e2723a1b433caec10bc8042add3133c080750d2f33b299863951c0c0220e6f67"
+multi_turn_miss_param_89 = "6588fbbc2dd66271db8ad0b69da08f428c1484ec13adf49efa16478fd352db40"
+multi_turn_miss_param_96 = "015825959c28a24f4fc3d297641537c3936502302d5a2b80c5021026de53b0c3"
+multi_turn_miss_param_99 = "36dc736c23e233b2bf89aaa88ff2002bc3d7c95412da48e865ad73601a2b67c0"
+multi_turn_miss_param_106 = "54da81ece1850beeadd42659e128bef170b6248eeea5ada491f5c756a95a5ded"
+multi_turn_miss_param_107 = "0d04e5ef950cba9568a85767df2d5287fa5448c2efeedaf886e28383175c2498"
+multi_turn_miss_param_113 = "623fe64f5774182a31de976db21af3fbb53cbdbee5fce17bfa0994fab1dc170e"
+multi_turn_miss_param_115 = "6a7f6d57a18acc514fa4688f010b66731a73dc246a3d14625992993f4144c734"
+multi_turn_miss_param_117 = "6d997dfd305a03799dfdba0af37bfede889da8cd8baa999fb57ae1fd51e076e8"
+multi_turn_miss_param_126 = "6adf695074399a1e6d09c6df0133da44ba606786e905b4f0a83e56e6526f3f56"
+multi_turn_miss_param_132 = "db541815a0a49288da3524ffb6f130f4bf9af5571ae09d25259132af0e04adc6"
+multi_turn_miss_param_142 = "5b1f59d7fdcc6842ea159876999fa7d563691fa71454415f5fe1cd9a2bf13d99"
+multi_turn_miss_param_153 = "1eb32171e0ed2802a9b2b801a829e72684d4d8a13587f34d1688f6d05fe105ee"
+multi_turn_miss_param_161 = "f569dbdd8c23d4e52a5cf4b249dcbd5bc54a8f25b4337dee3c66a874ab8000ba"
+multi_turn_miss_param_182 = "2bf3a2270b208a5633df05a6220a726a7155e8600067c6aaf5fc7d3acc05b1c3"
+multi_turn_miss_param_187 = "62cdd457809052478c323c51cbfc185e8bc9f804b456e127befde4ad205d6f5b"
+multi_turn_miss_param_195 = "58c16f836a1eae1d5bcfa9c1ea121faaa498b778d79002082aa7c3b437b53d80"
+multi_turn_miss_param_198 = "eb35f23c3d6f514f6a139a65e75259c5368c004d4e710086a9a5aab8d868b201"
+multi_turn_miss_param_199 = "b095c6e2f413c3dbfe2e7bfad36685bec9f092af36290e7c666878ba3256c35e"
+multi_turn_long_context_9 = "f39a698ac7c15670a2a136be8be0e5b9ab534dfccdf0a67b96c003519ae8fee3"
+multi_turn_long_context_16 = "8ddc377434ef8631e916307281af34efd78e39bc1c4cdbe3d7a2e044d24f2f9b"
+multi_turn_long_context_20 = "fa5e1cea0bc7c7b843f592c79433a0f737d30e20cf7ee5518fda3c51013f4318"
+multi_turn_long_context_24 = "d18c22141a336e6435e779e4eeacf49f6864cafeed6b9e57acfa917500b68916"
+multi_turn_long_context_29 = "43b44eccef2d7648cc545afbb0d0ff39c9159cb078d910b16ae4b860f3782543"
+multi_turn_long_context_32 = "a6bc5bf64d8514ff27717a3a8177a417e41809d2cfca41d128a365b10d3da7bb"
+multi_turn_long_context_36 = "4a67261dd521b25c9e5e25e93e5174724ffe739a80dda44d89042cc87c4ffe7b"
+multi_turn_long_context_42 = "d18f7dbe99a238a1a0ca74f8c0253b1b6cdd401af5c2e3e408a69f712dcd35ff"
+multi_turn_long_context_47 = "3ec6cb1fa33888b4d65ec3916a772b7df4b65b1c3d592dc8c6aa526b09836b62"
+multi_turn_long_context_48 = "65183c1bf275913ceb961ab9068c94376bf701356847fde5f57eedd26e8b91b9"
+multi_turn_long_context_61 = "e2765bc6757651d4906fd53d69177d50c4e72ca7db4cb38ad45475d13fc6a70b"
+multi_turn_long_context_69 = "7545df21047c94669ceb5f0e04175ea87e3db48375280e08178cdfc6a5959394"
+multi_turn_long_context_74 = "bb83fb7ae10203318ca60561d383a0603d17c455cee9f4ef2d2267131151a95e"
+multi_turn_long_context_86 = "d65d5b5203481ae410958fcd1223cb96075a2e5fe28d2bb488f60f52f3873cf0"
+multi_turn_long_context_91 = "ceba7a2d594dfcf1a5acb6e1391ce99ce0d5399c7eb9a1a19a9ffd6b974d176c"
+multi_turn_long_context_100 = "7cff38ede188b70d345ffd272afab41569fbfde829eba04472c12becae1f0125"
+multi_turn_long_context_110 = "ccb23f5925a592f143eeecc8ec93645053c6ec7ae5d2f3c55ed3a2de039ae992"
+multi_turn_long_context_119 = "c0e7ce4f0746c5e270993fc90c814e910e04e7130f09b476640bbe60ee6a20b9"
+multi_turn_long_context_148 = "de9ad5d58c4f8ad9157bc1b529616023f97b788295c2b6cbeb443f79b8d85cf6"
+multi_turn_long_context_151 = "309982ba7c8a9769065992cafcb88b02a2ee194bbe88876184cc30e404f7f8ed"
+multi_turn_long_context_165 = "d549069b8b0582cd7fb748863773d23dceb6b0edaa2b8641e14b8024af3fbf85"
+multi_turn_long_context_189 = "3ebd43cd6e1b6866985f7c00324d92fe9d96b9d0f73d3c4a4dfdb2d70b5fa37e"
+multi_turn_long_context_194 = "afa7db0b634436371ad160c32ebb9023831b572a31843fff151d4d8edfe5c24c"
+multi_turn_long_context_196 = "9af168c8deffd591e8babc95dae92aa4cf72a34a75cb8ce57f14cc56db30612b"
+multi_turn_long_context_198 = "c0274906ab1b3ce7f57200f2292570855fd022b443d94a2dc97c5899f5a1cf51"
