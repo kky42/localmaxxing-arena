@@ -1,0 +1,44 @@
+{
+  "recipe_file": "recipes/minimax-m3.1-flash@official-mxfp8-nvfp4-vllm-tp8-8xgb10.toml",
+  "recipe": {
+    "id": "minimax-m3.1-flash@official-mxfp8-nvfp4-vllm-tp8-8xgb10",
+    "model": "openai/minimax-m3.1-flash",
+    "api_base": "http://192.168.88.1:8002/v1"
+  },
+  "date": "2026-10-24T19:32:23+00:00",
+  "context_tokens": 32768,
+  "generate_tokens": 512,
+  "concurrency": 1,
+  "host": {
+    "os": "Linux-6.17.0-1029-nvidia-aarch64-with-glibc2.39",
+    "machine": "aarch64"
+  },
+  "samples": [
+    {
+      "prompt_tokens": 30079,
+      "ttft_s": 10.817,
+      "pp_tok_s": 2780.8,
+      "completion_tokens": 512,
+      "decode_s": 7.001,
+      "tg_tok_s": 73.0
+    },
+    {
+      "prompt_tokens": 30076,
+      "ttft_s": 10.85,
+      "pp_tok_s": 2772.0,
+      "completion_tokens": 512,
+      "decode_s": 7.432,
+      "tg_tok_s": 68.8
+    },
+    {
+      "prompt_tokens": 30094,
+      "ttft_s": 10.824,
+      "pp_tok_s": 2780.3,
+      "completion_tokens": 512,
+      "decode_s": 6.965,
+      "tg_tok_s": 73.4
+    }
+  ],
+  "pp_tok_s": 2780.3,
+  "tg_tok_s": 73.0
+}

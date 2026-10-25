@@ -1,0 +1,62 @@
+{
+  "bench": "bfcl-100",
+  "recipe_file": "recipes/minimax-m3.1-flash@official-mxfp8-nvfp4-vllm-tp8-8xgb10.toml",
+  "recipe": {
+    "id": "minimax-m3.1-flash@official-mxfp8-nvfp4-vllm-tp8-8xgb10",
+    "role": "local",
+    "model_family": "MiniMax-M3.1-Flash",
+    "display_name": "MiniMax-M3.1-Flash \u00b7 vLLM TP8",
+    "weights": "Official MXFP8/NVFP4",
+    "hardware": "8\u00d7 GB10",
+    "weights_detail": "MiniMax/MiniMax-M3.1-Flash (ModelScope, official checkpoint: MXFP8 dense layers, NVFP4 routed experts, built-in DSpark draft in dspark/; all 73 files sha256-verified, downloaded 2026-10-23)",
+    "serving": "vLLM 0.1.dev23341+g8744dd2fb (image vllm/vllm-openai:minimax-m31-flash-arm64-cu134) TP8 + arx RDMA all-reduce/all-gather plugin; MSA sparse attention and indexer on the Triton path (SM121), --kv-cache-dtype fp8, indexer_kv_dtype fp8, --moe-backend marlin, --block-size 128, --disable-hybrid-kv-cache-manager, cudagraph FULL_AND_PIECEWISE; DSpark 4 drafts (probabilistic draft sampling, block rejection); --reasoning-parser minimax_m3 --tool-call-parser minimax_m3; max-num-seqs 16, max-num-batched-tokens 8192, max-model-len 262144",
+    "hardware_detail": "8\u00d7 GB10 (DGX Spark class, 128 GB), one 200G RoCE link each, GPU clocks locked 0-2200 MHz",
+    "model": "openai/minimax-m3.1-flash",
+    "api_base": "http://192.168.88.1:8002/v1",
+    "n_concurrent": 16
+  },
+  "attempts": 1,
+  "finished": true,
+  "runner": "inspect",
+  "harness": "inspect-ai==0.3.281 + inspect_evals[bfcl] @ git+https://github.com/UKGovernmentBEIS/inspect_evals@8ef810f09930362302fc59b10a382d96dd767171 + openai==3.35.1",
+  "host": {
+    "os": "Linux-6.17.0-1029-nvidia-aarch64-with-glibc2.39",
+    "machine": "aarch64",
+    "node": "gx10-9701",
+    "docker": {
+      "ServerVersion": "29.2.1",
+      "NCPU": 20,
+      "MemTotal": 130595991552,
+      "Architecture": "aarch64"
+    }
+  },
+  "started_at": "2026-10-24T08:38:05+00:00",
+  "parts": [
+    {
+      "job_name": "2026-10-24_minimax-m3.1-flash@official-mxfp8-nvfp4-vllm-tp8-8xgb10",
+      "attempts": 1,
+      "n_concurrent": 16,
+      "config": "inspect-config-p1.json",
+      "started_at": "2026-10-24T08:38:05+00:00",
+      "host": {
+        "os": "Linux-6.17.0-1029-nvidia-aarch64-with-glibc2.39",
+        "machine": "aarch64",
+        "node": "gx10-9701",
+        "docker": {
+          "ServerVersion": "29.2.1",
+          "NCPU": 20,
+          "MemTotal": 130595991552,
+          "Architecture": "aarch64"
+        }
+      },
+      "finished": true,
+      "evidence": {
+        "archive": "2026-10-24_minimax-m3.1-flash@official-mxfp8-nvfp4-vllm-tp8-8xgb10.tar.gz",
+        "bytes": 12164485,
+        "sha256": "55811761e3be7a02097c0eb38bb4d3635c0682ce73ca2438d688314547aef4a4",
+        "pieces": [],
+        "url": null
+      }
+    }
+  ]
+}
